@@ -1,4 +1,4 @@
-view: smaxnodemem {
+view: pscunodememavg {
   sql_table_name: opsa_default.oa_kube_kglobal;;
 
   dimension: hostname_podname {

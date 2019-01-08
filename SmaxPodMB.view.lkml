@@ -1,15 +1,15 @@
-view: smaxnodemem {
+view: smaxpodmb {
   sql_table_name: opsa_default.oa_kube_kglobal;;
 
-  dimension: hostname_podname {
-    description: "hostname for Node"
+  dimension: podname {
+    description: "Pod Name"
     type: string
     sql: ${TABLE}.kglobal_id ;;
   }
   dimension: node_memory {
-    description: "Memory for Node"
+    description: "Pod MB"
     type: string
-    sql: ${TABLE}.node_memory ;;
+    sql: ${TABLE}.pod_memory ;;
   }
   dimension: time {
     description: "Time of sample"

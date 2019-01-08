@@ -1,4 +1,4 @@
-view: smaxprdnodemem {
+view: smaprdnodemem {
   sql_table_name: opsa_default.oa_kube_kglobal;;
 
   dimension: hostname_podname {
@@ -37,4 +37,4 @@ view: smaxprdnodemem {
     value_format_name: percent_1
 
   }
- }
+}

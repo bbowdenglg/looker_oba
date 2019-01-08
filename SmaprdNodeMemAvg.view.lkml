@@ -1,4 +1,4 @@
-view: smaxnodemem {
+view: smaxprdnodememavg {
   sql_table_name: opsa_default.oa_kube_kglobal;;
 
   dimension: hostname_podname {
@@ -37,4 +37,4 @@ view: smaxnodemem {
     value_format_name: percent_1
 
   }
-}
+ }
