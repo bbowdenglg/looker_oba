@@ -43,7 +43,7 @@ view: pscuomi {
   }
 
   measure: severitycount{
-    type: sum
-    sql: ${severity} ;;
-      }
+    type: count
+    drill_fields: [severity]
+    }
 }
