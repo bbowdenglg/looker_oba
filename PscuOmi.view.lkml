@@ -44,6 +44,6 @@ view: pscuomi {
 
   measure: severitycount{
     type: count
-    drill_fields: [severity]
+    drill_fields: [severitycount]
     }
 }
