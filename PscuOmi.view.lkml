@@ -43,7 +43,7 @@ view: pscuomi {
   }
 
   measure: severitycount{
-    type: number
+    type: sum
     sql: ${severity} ;;
       }
 }
