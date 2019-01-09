@@ -33,8 +33,8 @@ view: pscupodmb {
 
   measure: average_memory {
     type: average
-    sql: ${node_memory}/100 ;;
-    value_format_name: percent_1
+    sql: ${node_memory};;
+
 
   }
 }
