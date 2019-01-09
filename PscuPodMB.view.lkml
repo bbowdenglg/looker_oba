@@ -1,6 +1,11 @@
 view: pscupodmb {
  sql_table_name: opsa_default.oa_kube_kglobal;;
 
+  dimension: sourcename {
+    description: "Source"
+    type: string
+    sql: ${TABLE}.sourceid ;;
+  }
   dimension: podname {
     description: "Pod Name"
     type: string
