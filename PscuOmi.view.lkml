@@ -41,4 +41,9 @@ view: pscuomi {
     type: string
     sql: ${TABLE}.message ;;
   }
+
+  measure: severitycount{
+    type: number
+    sql: ${severity} ;;
+      }
 }
