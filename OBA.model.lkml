@@ -40,3 +40,5 @@ explore: smaxnodememavg {
 
 explore: smaprdpodmb{
 }
+
+explore: bpm {}
