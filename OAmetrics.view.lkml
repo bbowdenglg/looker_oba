@@ -61,13 +61,13 @@ view: oametrics {
 
 
 measure: avg_load_avg {
-  type: average_distinct
+  type: average
   sql_distinct_key: ${hostname} ;;
   sql: ${loadavg} ;;
 }
 
   measure: mem_avg {
-    type: average_distinct
+    type: average
     sql_distinct_key: ${hostname} ;;
     sql: ${node_memory}
     value_format_name: percent_1 ;;
