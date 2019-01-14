@@ -5,7 +5,7 @@ view: oametrics {
   dimension: hostname {
     description: "hostname for Node"
     type: string
-    sql: ${TABLE}.hostname ;;
+    sql: ${TABLE}.host_name ;;
   }
   dimension: node_memory {
     description: "Memory"
