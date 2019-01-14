@@ -56,10 +56,14 @@ view: oametrics {
     sql: ${TABLE}.timestamp_utc ;;
   }
 
-  measure: average_memory {
-    type: average
-    sql: ${hostname} ;;
+  #measure: average_memory {
+    ##sql: ${hostname} ;;
 
 
-  }
+measure: avg_shipping {
+  type: average_distinct
+  sql_distinct_key: ${hostname} ;;
+  sql: ${loadavg} ;;
+}
+
 }
