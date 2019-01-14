@@ -58,7 +58,7 @@ view: oametrics {
 
   measure: average_memory {
     type: average
-    sql: ${loadavg} ;;
+    sql: ${hostname} ;;
 
 
   }
