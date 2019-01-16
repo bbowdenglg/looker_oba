@@ -70,7 +70,8 @@ measure: avg_load_avg {
     type: average
     sql_distinct_key: ${hostname} ;;
     sql: ${node_memory} ;;
-     }
+    value_format_name: percent_0
+  }
 
   measure: net_avg {
     type: average
@@ -82,6 +83,7 @@ measure: avg_load_avg {
     type: average
     sql_distinct_key: ${hostname} ;;
     sql: ${cpu} ;;
+    value_format_name: percent_0
   }
 
 }
