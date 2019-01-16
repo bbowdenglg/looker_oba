@@ -78,6 +78,10 @@ measure: avg_load_avg {
     sql: ${net} ;;
   }
 
-
+  measure: cpu_avg {
+    type: average
+    sql_distinct_key: ${hostname} ;;
+    sql: ${cpu} ;;
+  }
 
 }
