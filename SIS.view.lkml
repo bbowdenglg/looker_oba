@@ -43,6 +43,12 @@ view: sis {
     sql: ${TABLE}.timestamp_utc ;;
   }
 
+  measure:roundtrip_avg{
+    type: average
+    sql_distinct_key: ${monitorname} ;;
+    sql: ${roundtrip} ;;
+  }
+
   #measure: average_memory {
   ##sql: ${hostname} ;;
 }
