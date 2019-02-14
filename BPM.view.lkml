@@ -15,19 +15,19 @@ view: bpm {
     dimension: transaction_response_time_name {
       description: "Response Time"
       type: string
-      sql: ${TABLE}.transaction_response_time_name ;;
+      sql: ${TABLE}.transaction_response_time ;;
 
     }
     dimension: transaction_backend_time_name {
       description: "Backend Time"
       type: string
-      sql: ${TABLE}.transaction_backend_time_name ;;
+      sql: ${TABLE}.transaction_backend_time ;;
 
     }
     dimension: transaction_client_time_name {
       description: "Client Time"
       type: string
-      sql: ${TABLE}.transaction_client_time_name ;;
+      sql: ${TABLE}.transaction_client_time ;;
 
     }
     dimension: time {
