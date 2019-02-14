@@ -43,11 +43,6 @@ view: bpm {
       sql: ${TABLE}._roundtrip_time_milliseconds_ ;;
     }
 
-    dimension: status{
-      description: "Status"
-      type: string
-      sql: ${TABLE}._status_ ;;
-    }
 
     dimension_group: timestamp_utc {
       type: time
