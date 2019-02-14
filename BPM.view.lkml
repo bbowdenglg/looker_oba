@@ -1,69 +1,87 @@
 view: bpm {
-  # # You can specify the table name if it's different from the view name:
-  # sql_table_name: my_schema_name.tester ;;
-  #
-  # # Define your dimensions and measures here, like this:
-  # dimension: user_id {
-  #   description: "Unique ID for each user that has ordered"
-  #   type: number
-  #   sql: ${TABLE}.user_id ;;
-  # }
-  #
-  # dimension: lifetime_orders {
-  #   description: "The total number of orders for each user"
-  #   type: number
-  #   sql: ${TABLE}.lifetime_orders ;;
-  # }
-  #
-  # dimension_group: most_recent_purchase {
-  #   description: "The date when each user last ordered"
-  #   type: time
-  #   timeframes: [date, week, month, year]
-  #   sql: ${TABLE}.most_recent_purchase_at ;;
-  # }
-  #
-  # measure: total_lifetime_orders {
-  #   description: "Use this for counting lifetime orders across many users"
-  #   type: sum
-  #   sql: ${lifetime_orders} ;;
-  # }
-}
+    sql_table_name: opsa_default.bpm_application_performance  ;;
 
-# view: bpm {
-#   # Or, you could make this view a derived table, like this:
-#   derived_table: {
-#     sql: SELECT
-#         user_id as user_id
-#         , COUNT(*) as lifetime_orders
-#         , MAX(orders.created_at) as most_recent_purchase_at
-#       FROM orders
-#       GROUP BY user_id
-#       ;;
-#   }
-#
-#   # Define your dimensions and measures here, like this:
-#   dimension: user_id {
-#     description: "Unique ID for each user that has ordered"
-#     type: number
-#     sql: ${TABLE}.user_id ;;
-#   }
-#
-#   dimension: lifetime_orders {
-#     description: "The total number of orders for each user"
-#     type: number
-#     sql: ${TABLE}.lifetime_orders ;;
-#   }
-#
-#   dimension_group: most_recent_purchase {
-#     description: "The date when each user last ordered"
-#     type: time
-#     timeframes: [date, week, month, year]
-#     sql: ${TABLE}.most_recent_purchase_at ;;
-#   }
-#
-#   measure: total_lifetime_orders {
-#     description: "Use this for counting lifetime orders across many users"
-#     type: sum
-#     sql: ${lifetime_orders} ;;
-#   }
-# }
+    dimension: transaction_name {
+      description: "Transaction"
+      type: string
+      sql: ${TABLE}.transaction ;;
+    }
+    dimension: application_name {
+      description: "Application"
+      type: string
+      sql: ${TABLE}.application ;;
+
+    }
+    dimension: transaction_response_time_name {
+      description: "Response Time"
+      type: string
+      sql: ${TABLE}.application ;;
+
+    }
+    dimension: transaction_backend_time_name {
+      description: "Backend Time"
+      type: string
+      sql: ${TABLE}.application ;;
+
+    }
+    dimension: transaction_client_time_name {
+      description: "Client Time"
+      type: string
+      sql: ${TABLE}.application ;;
+
+    }
+    dimension: time {
+      description: "Time of sample"
+      type: string
+      sql: ${TABLE}.timestamp_utc ;;
+
+    }
+
+    dimension: roundtrip {
+      description: "Round Trip"
+      type: string
+      sql: ${TABLE}._roundtrip_time_milliseconds_ ;;
+    }
+
+    dimension: status{
+      description: "Status"
+      type: string
+      sql: ${TABLE}._status_ ;;
+    }
+
+    dimension_group: timestamp_utc {
+      type: time
+      timeframes: [
+        raw,
+        time,
+        date,
+        week,
+        month,
+        quarter,
+        year
+      ]
+      sql: ${TABLE}.timestamp_utc ;;
+    }
+
+    measure:roundtrip_avg{
+      type: average
+      sql_distinct_key: ${transaction_name} ;;
+      sql: ${transaction_response_time_name} ;;
+    }
+
+    measure:backend_avg{
+      type: average
+      sql_distinct_key: ${transaction_name} ;;
+      sql: ${transaction_backend_time_name} ;;
+    }
+
+    measure:client_time_avg{
+      type: average
+      sql_distinct_key: ${transaction_name} ;;
+      sql: ${transaction_client_time_name} ;;
+  }
+
+
+    #measure: average_memory {
+    ##sql: ${hostname} ;;
+  }
