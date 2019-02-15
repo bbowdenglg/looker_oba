@@ -46,3 +46,5 @@ explore: bpm {}
 explore: oametrics {}
 
 explore: sis {}
+
+explore: nnm {}
