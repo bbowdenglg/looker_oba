@@ -24,6 +24,12 @@ view: nnm {
       sql: ${TABLE}.utilization_in ;;
 
     }
+    dimension: utilization_Out {
+      description: "Util Out"
+      type: string
+      sql: ${TABLE}.utilization_out ;;
+
+    }
     dimension: interface_speed {
       description: "Interface Speed"
       type: string
@@ -81,4 +87,10 @@ view: nnm {
     sql_distinct_key: ${host_name} ;;
     sql: ${utilization_in_forecast_baseline_8_week} ;;
   }
+
+  measure:util_out_avg{
+    type: average
+    sql_distinct_key: ${host_name} ;;
+    sql: ${utilization_Out} ;;
   }
+}
