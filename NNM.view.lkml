@@ -64,7 +64,7 @@ view: nnm {
       sql: ${TABLE}.timestamp_utc ;;
     }
 
-    measure:interface_speed_avg{
+    measure:host_interface_speed_avg{
       type: average
       sql_distinct_key: ${host_name} ;;
       sql: ${interface_speed} ;;
@@ -88,9 +88,38 @@ view: nnm {
     sql: ${utilization_in_forecast_baseline_8_week} ;;
   }
 
-  measure:util_out_avg{
+  measure:interface_utilization_out_avg{
     type: average
-    sql_distinct_key: ${host_name} ;;
+    sql_distinct_key: ${interface_alias} ;;
+    sql: ${utilization_Out} ;;
+  }
+  measure:interface_speed_avg{
+    type: average
+    sql_distinct_key: ${interface_alias} ;;
+    sql: ${interface_speed} ;;
+  }
+
+  measure:interface_utilization_in_avg{
+    type: average
+    sql_distinct_key: ${interface_alias} ;;
+    sql: ${utilization_in} ;;
+  }
+
+  measure:interface_utilization_avg{
+    type: average
+    sql_distinct_key: ${interface_alias} ;;
+    sql: ${utilization} ;;
+  }
+
+  measure:interface_util_8week_avg{
+    type: average
+    sql_distinct_key: ${interface_alias} ;;
+    sql: ${utilization_in_forecast_baseline_8_week} ;;
+  }
+
+  measure:interface_util_out_avg{
+    type: average
+    sql_distinct_key: ${interface_alias} ;;
     sql: ${utilization_Out} ;;
   }
 }
