@@ -76,6 +76,12 @@ view: nnm {
       sql: ${utilization_in} ;;
     }
 
+  measure:utilization_out_avg{
+    type: average
+    sql_distinct_key: ${host_name} ;;
+    sql: ${utilization_Out} ;;
+  }
+
     measure:utilization_avg{
       type: average
       sql_distinct_key: ${host_name} ;;
