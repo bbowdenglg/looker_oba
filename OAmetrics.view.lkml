@@ -59,6 +59,12 @@ view: oametrics {
   #measure: average_memory {
     ##sql: ${hostname} ;;
 
+  measure: time_avg {
+    type: average
+    sql_distinct_key: ${hostname} ;;
+    sql: ${TABLE}.timestamp_utc ;;
+    }
+
 
 measure: avg_load_avg {
   type: average
